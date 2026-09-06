@@ -37,7 +37,5 @@ Return indices rather than values. Two different indices may contain equal
 values; it is the same element that cannot be used twice.
 
 ## Help and revisit
-
-- Help used: Guided explanation and C++ code provided by ChatGPT.
 - Independently revisited: Not yet.
 - Next practice: Reimplement the nested-loop approach without looking at the code.
