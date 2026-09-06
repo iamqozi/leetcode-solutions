@@ -1,42 +1,43 @@
 # 1. Two Sum
 
 **Problem:** https://leetcode.com/problems/two-sum/  
-**Status:** Not started — the C++ file is an unfinished starter.
+**Status:** Accepted — 65/65 test cases passed, confirmed by the submission screenshot.
 
-## Goal
+## Approach
 
-Find two distinct positions whose values add up to the target.
-Read the complete statement and constraints on LeetCode.
+Use two loops to check every pair of distinct positions. The outer loop selects
+index i. The inner loop starts at i + 1 and selects index j. If the two values
+sum to the target, return their indices.
 
-## First attempt
+Starting j at i + 1 prevents using the same element twice and avoids checking
+a pair again in reverse order. Every possible pair with i < j is considered,
+so the guaranteed valid pair will be found.
 
-Start by thinking about every pair of positions.
+## Walkthrough
 
-- How can you avoid pairing a position with itself?
-- How can you avoid checking the same pair twice?
-- Should you return the values or their positions?
+For nums = [5, 8, 1, 3] and target = 9, indices 1 and 2 contain 8 and 1.
+Since 8 + 1 = 9, return [1, 2].
 
-Try writing that approach before reading the optional hint.
+## Complexity
 
-<details>
-<summary>Optional hint for improving the approach</summary>
+- Time: O(n²) in the worst case, where n is the number of elements.
+  At most n(n - 1)/2 pairs are checked.
+- Extra space: O(1). Only loop indices and a fixed-size result are needed.
 
-For each value, calculate the value needed to reach the target.
-Think about how you could quickly find that needed value among items
-already visited, while also keeping its position.
+## Validation
 
-</details>
+LeetCode accepted the submitted approach on all 65 test cases.
+The repository version includes <vector>, uses std::vector, and retains a
+fallback empty return so every control path returns a value. The fallback
+is not reached for inputs satisfying the problem's guarantee.
 
-## Practice example
+## Learning notes
 
-For `nums = [3, 2, 4]` and `target = 6`, the positions are `[1, 2]`.
-C++ vector indices start at zero.
+Return indices rather than values. Two different indices may contain equal
+values; it is the same element that cannot be used twice.
 
-## My explanation
+## Help and revisit
 
-After solving, use [the explanation template](../../templates/explanation.md)
-to record the approach, complexity, checked cases, and what you learned.
-
-## Submission
-
-Not submitted. Replace the starter body before submitting on LeetCode.
+- Help used: Guided explanation and C++ code provided by ChatGPT.
+- Independently revisited: Not yet.
+- Next practice: Reimplement the nested-loop approach without looking at the code.
